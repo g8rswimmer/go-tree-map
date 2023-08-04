@@ -125,3 +125,74 @@ func TestTree_Insert(t *testing.T) {
 		})
 	}
 }
+
+func TestTree_Search(t *testing.T) {
+	type fields struct {
+		root *Node
+	}
+	type args struct {
+		k int
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+		want   string
+		want1  bool
+	}{
+		{
+			name: "found",
+			fields: fields{
+				root: &Node{
+					Pair: Pair{Key: 8, Value: "eight"},
+					left: &Node{
+						Pair: Pair{Key: 5, Value: "five"},
+						right: &Node{
+							Pair: Pair{Key: 7, Value: "seven"},
+						},
+					},
+					right: &Node{
+						Pair: Pair{Key: 10, Value: "ten"},
+					},
+				},
+			},
+			args: args{
+				k: 7,
+			},
+			want:  "seven",
+			want1: true,
+		},
+		{
+			name: "not found",
+			fields: fields{
+				root: &Node{
+					Pair: Pair{Key: 8, Value: "eight"},
+					left: &Node{
+						Pair: Pair{Key: 5, Value: "five"},
+						right: &Node{
+							Pair: Pair{Key: 7, Value: "seven"},
+						},
+					},
+					right: &Node{
+						Pair: Pair{Key: 10, Value: "ten"},
+					},
+				},
+			},
+			args: args{
+				k: 40,
+			},
+			want:  "",
+			want1: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tr := &Tree{
+				root: tt.fields.root,
+			}
+			got, got1 := tr.Search(tt.args.k)
+			assert.Equal(t, tt.want, got)
+			assert.Equal(t, tt.want1, got1)
+		})
+	}
+}

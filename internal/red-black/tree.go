@@ -19,3 +19,7 @@ func (t *Tree) Insert(p Pair) {
 func (t *Tree) Inorder() []Pair {
 	return inorderTraversal(t.root, []Pair{})
 }
+
+func (t *Tree) Search(k int) (string, bool) {
+	return search(t.root, k)
+}
