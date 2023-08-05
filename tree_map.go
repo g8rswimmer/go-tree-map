@@ -15,7 +15,8 @@ type Map[K constraints.Ordered, V any] struct {
 
 func NewMap[K constraints.Ordered, V any]() *Map[K, V] {
 	return &Map[K, V]{
-		rbt: &rb.Tree[K, V]{},
+		rbt:  &rb.Tree[K, V]{},
+		size: 0,
 	}
 }
 
