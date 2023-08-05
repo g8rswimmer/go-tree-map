@@ -27,24 +27,24 @@ func Test_rotation_rotate(t *testing.T) {
 			},
 			args: args{
 				n: &Node{
-					Pair:  Pair{Key: 3, Value: "three"},
+					Pair:  Pair[int, string]{Key: 3, Value: "three"},
 					black: true,
 					left: &Node{
-						Pair: Pair{Key: 21, Value: "twenty-one"},
+						Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
 						left: &Node{
-							Pair: Pair{Key: 32, Value: "thirty-two"},
+							Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 						},
 					},
 				},
 			},
 			want: &Node{
-				Pair:  Pair{Key: 21, Value: "twenty-one"},
+				Pair:  Pair[int, string]{Key: 21, Value: "twenty-one"},
 				black: true,
 				right: &Node{
-					Pair: Pair{Key: 3, Value: "three"},
+					Pair: Pair[int, string]{Key: 3, Value: "three"},
 				},
 				left: &Node{
-					Pair: Pair{Key: 32, Value: "thirty-two"},
+					Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 				},
 			},
 		},

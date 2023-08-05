@@ -1,12 +1,12 @@
 package rb
 
-type Pair struct {
-	Key   int
-	Value string
+type Pair[K comparable, V any] struct {
+	Key   K
+	Value V
 }
 
 type Node struct {
-	Pair   Pair
+	Pair   Pair[int, string]
 	left   *Node
 	right  *Node
 	parent *Node

@@ -1,6 +1,6 @@
 package rb
 
-func insert(root, n *Node, p Pair, r *rotation) *Node {
+func insert(root, n *Node, p Pair[int, string], r *rotation) *Node {
 	rrConflict := false
 	switch {
 	case n == nil:

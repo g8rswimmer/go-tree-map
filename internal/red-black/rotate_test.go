@@ -17,22 +17,22 @@ func Test_rotateLeft(t *testing.T) {
 			name: "rotate no parent",
 			args: args{
 				n: &Node{
-					Pair: Pair{Key: 3, Value: "three"},
+					Pair: Pair[int, string]{Key: 3, Value: "three"},
 					right: &Node{
-						Pair: Pair{Key: 21, Value: "twenty-one"},
+						Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
 						right: &Node{
-							Pair: Pair{Key: 32, Value: "thirty-two"},
+							Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 						},
 					},
 				},
 			},
 			want: &Node{
-				Pair: Pair{Key: 21, Value: "twenty-one"},
+				Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
 				right: &Node{
-					Pair: Pair{Key: 32, Value: "thirty-two"},
+					Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 				},
 				left: &Node{
-					Pair: Pair{Key: 3, Value: "three"},
+					Pair: Pair[int, string]{Key: 3, Value: "three"},
 				},
 			},
 		},
@@ -58,22 +58,22 @@ func Test_rotateRight(t *testing.T) {
 			name: "rotate no parent",
 			args: args{
 				n: &Node{
-					Pair: Pair{Key: 3, Value: "three"},
+					Pair: Pair[int, string]{Key: 3, Value: "three"},
 					left: &Node{
-						Pair: Pair{Key: 21, Value: "twenty-one"},
+						Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
 						left: &Node{
-							Pair: Pair{Key: 32, Value: "thirty-two"},
+							Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 						},
 					},
 				},
 			},
 			want: &Node{
-				Pair: Pair{Key: 21, Value: "twenty-one"},
+				Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
 				right: &Node{
-					Pair: Pair{Key: 3, Value: "three"},
+					Pair: Pair[int, string]{Key: 3, Value: "three"},
 				},
 				left: &Node{
-					Pair: Pair{Key: 32, Value: "thirty-two"},
+					Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 				},
 			},
 		},

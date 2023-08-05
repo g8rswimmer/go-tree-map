@@ -1,6 +1,6 @@
 package rb
 
-func inorderTraversal(n *Node, pairs []Pair) []Pair {
+func inorderTraversal(n *Node, pairs []Pair[int, string]) []Pair[int, string] {
 	if n == nil {
 		return pairs
 	}

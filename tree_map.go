@@ -19,7 +19,7 @@ func NewMap() *Map {
 }
 
 func (m *Map) Put(k int, v string) {
-	m.rbt.Insert(rb.Pair{Key: k, Value: v})
+	m.rbt.Insert(rb.Pair[int, string]{Key: k, Value: v})
 	m.size++
 }
 

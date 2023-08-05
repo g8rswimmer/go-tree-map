@@ -11,10 +11,10 @@ func TestTree_Insert(t *testing.T) {
 		root *Node
 	}
 	type args struct {
-		pairs []Pair
+		pairs []Pair[int, string]
 	}
 	type order struct {
-		pairs []Pair
+		pairs []Pair[int, string]
 	}
 	tests := []struct {
 		name   string
@@ -26,7 +26,7 @@ func TestTree_Insert(t *testing.T) {
 		{
 			name: "left balance",
 			args: args{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{10, "ten"},
 					{9, "nine"},
 					{8, "eight"},
@@ -36,7 +36,7 @@ func TestTree_Insert(t *testing.T) {
 			},
 			depth: 3,
 			order: order{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{6, "six"},
 					{7, "seven"},
 					{8, "eight"},
@@ -48,7 +48,7 @@ func TestTree_Insert(t *testing.T) {
 		{
 			name: "right balance",
 			args: args{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{6, "six"},
 					{7, "seven"},
 					{8, "eight"},
@@ -58,7 +58,7 @@ func TestTree_Insert(t *testing.T) {
 			},
 			depth: 3,
 			order: order{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{6, "six"},
 					{7, "seven"},
 					{8, "eight"},
@@ -70,7 +70,7 @@ func TestTree_Insert(t *testing.T) {
 		{
 			name: "balance",
 			args: args{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{7, "seven"},
 					{6, "six"},
 					{8, "eight"},
@@ -80,7 +80,7 @@ func TestTree_Insert(t *testing.T) {
 			},
 			depth: 3,
 			order: order{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{6, "six"},
 					{7, "seven"},
 					{8, "eight"},
@@ -92,7 +92,7 @@ func TestTree_Insert(t *testing.T) {
 		{
 			name: "balance two",
 			args: args{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{9, "nine"},
 					{6, "six"},
 					{10, "ten"},
@@ -102,7 +102,7 @@ func TestTree_Insert(t *testing.T) {
 			},
 			depth: 3,
 			order: order{
-				pairs: []Pair{
+				pairs: []Pair[int, string]{
 					{6, "six"},
 					{7, "seven"},
 					{8, "eight"},
@@ -121,7 +121,7 @@ func TestTree_Insert(t *testing.T) {
 				tr.Insert(p)
 			}
 			assert.Equal(t, tt.depth, depth(tr.root, 0))
-			assert.Equal(t, tt.order.pairs, inorderTraversal(tr.root, []Pair{}))
+			assert.Equal(t, tt.order.pairs, inorderTraversal(tr.root, []Pair[int, string]{}))
 		})
 	}
 }
@@ -144,15 +144,15 @@ func TestTree_Search(t *testing.T) {
 			name: "found",
 			fields: fields{
 				root: &Node{
-					Pair: Pair{Key: 8, Value: "eight"},
+					Pair: Pair[int, string]{Key: 8, Value: "eight"},
 					left: &Node{
-						Pair: Pair{Key: 5, Value: "five"},
+						Pair: Pair[int, string]{Key: 5, Value: "five"},
 						right: &Node{
-							Pair: Pair{Key: 7, Value: "seven"},
+							Pair: Pair[int, string]{Key: 7, Value: "seven"},
 						},
 					},
 					right: &Node{
-						Pair: Pair{Key: 10, Value: "ten"},
+						Pair: Pair[int, string]{Key: 10, Value: "ten"},
 					},
 				},
 			},
@@ -166,15 +166,15 @@ func TestTree_Search(t *testing.T) {
 			name: "not found",
 			fields: fields{
 				root: &Node{
-					Pair: Pair{Key: 8, Value: "eight"},
+					Pair: Pair[int, string]{Key: 8, Value: "eight"},
 					left: &Node{
-						Pair: Pair{Key: 5, Value: "five"},
+						Pair: Pair[int, string]{Key: 5, Value: "five"},
 						right: &Node{
-							Pair: Pair{Key: 7, Value: "seven"},
+							Pair: Pair[int, string]{Key: 7, Value: "seven"},
 						},
 					},
 					right: &Node{
-						Pair: Pair{Key: 10, Value: "ten"},
+						Pair: Pair[int, string]{Key: 10, Value: "ten"},
 					},
 				},
 			},
