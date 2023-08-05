@@ -29,7 +29,7 @@ func (r *rotation[K, V]) rotate(n *Node[K, V]) *Node[K, V] {
 		n.left.black = false
 		r.rightLeft = false
 	case r.leftRight:
-		n.left = rotateRight(n.left)
+		n.left = rotateLeft(n.left)
 		n.left.parent = n
 		n = rotateRight(n)
 		n.black = true

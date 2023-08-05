@@ -111,6 +111,32 @@ func TestTree_Insert(t *testing.T) {
 				},
 			},
 		},
+		{
+			name: "balance three",
+			args: args{
+				pairs: []Pair[int, string]{
+					{78, ""},
+					{7, ""},
+					{26, ""},
+					{2, ""},
+					{88, ""},
+					{11, ""},
+					{4, ""},
+				},
+			},
+			depth: 4,
+			order: order{
+				pairs: []Pair[int, string]{
+					{2, ""},
+					{4, ""},
+					{7, ""},
+					{11, ""},
+					{26, ""},
+					{78, ""},
+					{88, ""},
+				},
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
