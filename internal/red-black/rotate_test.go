@@ -6,32 +6,32 @@ import (
 
 func Test_rotateLeft(t *testing.T) {
 	type args struct {
-		n *Node
+		n *Node[int, string]
 	}
 	tests := []struct {
 		name string
 		args args
-		want *Node
+		want *Node[int, string]
 	}{
 		{
 			name: "rotate no parent",
 			args: args{
-				n: &Node{
+				n: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 3, Value: "three"},
-					right: &Node{
+					right: &Node[int, string]{
 						Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
-						right: &Node{
+						right: &Node[int, string]{
 							Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 						},
 					},
 				},
 			},
-			want: &Node{
+			want: &Node[int, string]{
 				Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
-				right: &Node{
+				right: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 				},
-				left: &Node{
+				left: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 3, Value: "three"},
 				},
 			},
@@ -47,32 +47,32 @@ func Test_rotateLeft(t *testing.T) {
 
 func Test_rotateRight(t *testing.T) {
 	type args struct {
-		n *Node
+		n *Node[int, string]
 	}
 	tests := []struct {
 		name string
 		args args
-		want *Node
+		want *Node[int, string]
 	}{
 		{
 			name: "rotate no parent",
 			args: args{
-				n: &Node{
+				n: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 3, Value: "three"},
-					left: &Node{
+					left: &Node[int, string]{
 						Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
-						left: &Node{
+						left: &Node[int, string]{
 							Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 						},
 					},
 				},
 			},
-			want: &Node{
+			want: &Node[int, string]{
 				Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
-				right: &Node{
+				right: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 3, Value: "three"},
 				},
-				left: &Node{
+				left: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 				},
 			},

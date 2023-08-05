@@ -1,9 +1,13 @@
 package rb
 
-func search(n *Node, k int) (string, bool) {
+import "golang.org/x/exp/constraints"
+
+func search[K constraints.Ordered, V any](n *Node[K, V], k K) (V, bool) {
+
 	switch {
 	case n == nil:
-		return "", false
+		var value V
+		return value, false
 	case n.Pair.Key == k:
 		return n.Pair.Value, true
 	case n.Pair.Key < k:

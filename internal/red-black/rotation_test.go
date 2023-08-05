@@ -12,13 +12,13 @@ func Test_rotation_rotate(t *testing.T) {
 		rightLeft bool
 	}
 	type args struct {
-		n *Node
+		n *Node[int, string]
 	}
 	tests := []struct {
 		name   string
 		fields fields
 		args   args
-		want   *Node
+		want   *Node[int, string]
 	}{
 		{
 			name: "rotate right red",
@@ -26,24 +26,24 @@ func Test_rotation_rotate(t *testing.T) {
 				right: true,
 			},
 			args: args{
-				n: &Node{
+				n: &Node[int, string]{
 					Pair:  Pair[int, string]{Key: 3, Value: "three"},
 					black: true,
-					left: &Node{
+					left: &Node[int, string]{
 						Pair: Pair[int, string]{Key: 21, Value: "twenty-one"},
-						left: &Node{
+						left: &Node[int, string]{
 							Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 						},
 					},
 				},
 			},
-			want: &Node{
+			want: &Node[int, string]{
 				Pair:  Pair[int, string]{Key: 21, Value: "twenty-one"},
 				black: true,
-				right: &Node{
+				right: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 3, Value: "three"},
 				},
-				left: &Node{
+				left: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 32, Value: "thirty-two"},
 				},
 			},
@@ -51,7 +51,7 @@ func Test_rotation_rotate(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			r := &rotation{
+			r := &rotation[int, string]{
 				left:      tt.fields.left,
 				right:     tt.fields.right,
 				leftRight: tt.fields.leftRight,

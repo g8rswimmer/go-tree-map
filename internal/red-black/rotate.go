@@ -1,6 +1,8 @@
 package rb
 
-func rotateLeft(n *Node) *Node {
+import "golang.org/x/exp/constraints"
+
+func rotateLeft[K constraints.Ordered, V any](n *Node[K, V]) *Node[K, V] {
 	r := n.right
 	r.left, n.right = n, r.left
 	n.parent = r
@@ -10,7 +12,7 @@ func rotateLeft(n *Node) *Node {
 	return r
 }
 
-func rotateRight(n *Node) *Node {
+func rotateRight[K constraints.Ordered, V any](n *Node[K, V]) *Node[K, V] {
 	r := n.left
 	r.right, n.left = n, r.right
 	n.parent = r

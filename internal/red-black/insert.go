@@ -1,10 +1,12 @@
 package rb
 
-func insert(root, n *Node, p Pair[int, string], r *rotation) *Node {
+import "golang.org/x/exp/constraints"
+
+func insert[K constraints.Ordered, V any](root, n *Node[K, V], p Pair[K, V], r *rotation[K, V]) *Node[K, V] {
 	rrConflict := false
 	switch {
 	case n == nil:
-		return &Node{
+		return &Node[K, V]{
 			Pair:  p,
 			black: false,
 		}
@@ -33,7 +35,7 @@ func insert(root, n *Node, p Pair[int, string], r *rotation) *Node {
 	return n
 }
 
-func handleRedRedConflict(root, n *Node, r *rotation) {
+func handleRedRedConflict[K constraints.Ordered, V any](root, n *Node[K, V], r *rotation[K, V]) {
 	if n.parent.right == n {
 		if n.parent.left == nil || n.parent.left.black {
 			switch {

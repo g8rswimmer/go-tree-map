@@ -5,33 +5,34 @@ import (
 	"io"
 
 	rb "github.com/g8rswimmer/go-tree-map/internal/red-black"
+	"golang.org/x/exp/constraints"
 )
 
-type Map struct {
-	rbt  *rb.Tree
+type Map[K constraints.Ordered, V any] struct {
+	rbt  *rb.Tree[K, V]
 	size int
 }
 
-func NewMap() *Map {
-	return &Map{
-		rbt: &rb.Tree{},
+func NewMap[K constraints.Ordered, V any]() *Map[K, V] {
+	return &Map[K, V]{
+		rbt: &rb.Tree[K, V]{},
 	}
 }
 
-func (m *Map) Put(k int, v string) {
-	m.rbt.Insert(rb.Pair[int, string]{Key: k, Value: v})
+func (m *Map[K, V]) Put(k K, v V) {
+	m.rbt.Insert(rb.Pair[K, V]{Key: k, Value: v})
 	m.size++
 }
 
-func (m *Map) Get(k int) (string, bool) {
+func (m *Map[K, V]) Get(k K) (V, bool) {
 	return m.rbt.Search(k)
 }
 
-func (m *Map) Len() int {
+func (m *Map[_, _]) Len() int {
 	return m.size
 }
 
-func (m *Map) Iterate(handler func(k int, v string) error) error {
+func (m *Map[K, V]) Iterate(handler func(k K, v V) error) error {
 	pairs := m.rbt.Inorder()
 
 	for _, p := range pairs {

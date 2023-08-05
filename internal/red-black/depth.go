@@ -1,6 +1,8 @@
 package rb
 
-func depth(n *Node, curr int) int {
+import "golang.org/x/exp/constraints"
+
+func depth[K constraints.Ordered, V any](n *Node[K, V], curr int) int {
 	if n == nil {
 		return curr
 	}

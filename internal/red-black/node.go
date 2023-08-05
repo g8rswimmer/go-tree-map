@@ -1,14 +1,16 @@
 package rb
 
-type Pair[K comparable, V any] struct {
+import "golang.org/x/exp/constraints"
+
+type Pair[K constraints.Ordered, V any] struct {
 	Key   K
 	Value V
 }
 
-type Node struct {
-	Pair   Pair[int, string]
-	left   *Node
-	right  *Node
-	parent *Node
+type Node[K constraints.Ordered, V any] struct {
+	Pair   Pair[K, V]
+	left   *Node[K, V]
+	right  *Node[K, V]
+	parent *Node[K, V]
 	black  bool
 }

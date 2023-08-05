@@ -4,9 +4,10 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"golang.org/x/exp/constraints"
 )
 
-func equalNode(t *testing.T, expected *Node, actual *Node) {
+func equalNode[K constraints.Ordered, V any](t *testing.T, expected *Node[K, V], actual *Node[K, V]) {
 	switch {
 	case expected == nil && actual == nil:
 		return

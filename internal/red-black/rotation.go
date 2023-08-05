@@ -1,13 +1,15 @@
 package rb
 
-type rotation struct {
+import "golang.org/x/exp/constraints"
+
+type rotation[K constraints.Ordered, V any] struct {
 	left      bool
 	right     bool
 	leftRight bool
 	rightLeft bool
 }
 
-func (r *rotation) rotate(n *Node) *Node {
+func (r *rotation[K, V]) rotate(n *Node[K, V]) *Node[K, V] {
 	switch {
 	case r.left:
 		n = rotateLeft(n)

@@ -8,7 +8,7 @@ import (
 
 func TestTree_Insert(t *testing.T) {
 	type fields struct {
-		root *Node
+		root *Node[int, string]
 	}
 	type args struct {
 		pairs []Pair[int, string]
@@ -114,7 +114,7 @@ func TestTree_Insert(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			tr := &Tree{
+			tr := &Tree[int, string]{
 				root: tt.fields.root,
 			}
 			for _, p := range tt.args.pairs {
@@ -128,7 +128,7 @@ func TestTree_Insert(t *testing.T) {
 
 func TestTree_Search(t *testing.T) {
 	type fields struct {
-		root *Node
+		root *Node[int, string]
 	}
 	type args struct {
 		k int
@@ -143,15 +143,15 @@ func TestTree_Search(t *testing.T) {
 		{
 			name: "found",
 			fields: fields{
-				root: &Node{
+				root: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 8, Value: "eight"},
-					left: &Node{
+					left: &Node[int, string]{
 						Pair: Pair[int, string]{Key: 5, Value: "five"},
-						right: &Node{
+						right: &Node[int, string]{
 							Pair: Pair[int, string]{Key: 7, Value: "seven"},
 						},
 					},
-					right: &Node{
+					right: &Node[int, string]{
 						Pair: Pair[int, string]{Key: 10, Value: "ten"},
 					},
 				},
@@ -165,15 +165,15 @@ func TestTree_Search(t *testing.T) {
 		{
 			name: "not found",
 			fields: fields{
-				root: &Node{
+				root: &Node[int, string]{
 					Pair: Pair[int, string]{Key: 8, Value: "eight"},
-					left: &Node{
+					left: &Node[int, string]{
 						Pair: Pair[int, string]{Key: 5, Value: "five"},
-						right: &Node{
+						right: &Node[int, string]{
 							Pair: Pair[int, string]{Key: 7, Value: "seven"},
 						},
 					},
-					right: &Node{
+					right: &Node[int, string]{
 						Pair: Pair[int, string]{Key: 10, Value: "ten"},
 					},
 				},
@@ -187,7 +187,7 @@ func TestTree_Search(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			tr := &Tree{
+			tr := &Tree[int, string]{
 				root: tt.fields.root,
 			}
 			got, got1 := tr.Search(tt.args.k)
