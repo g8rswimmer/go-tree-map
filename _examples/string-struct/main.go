@@ -33,7 +33,7 @@ func main() {
 	if !ok {
 		panic("unable to find value")
 	}
-	fmt.Printf("Tree Map Get key[88] Value: %s\n", v)
+	fmt.Printf("Tree Map Get key[c] Value: %s\n", v)
 
 	fmt.Println("Tree Map Ordered Iteration")
 	handler := func(k string, v example) error {

@@ -125,7 +125,7 @@ func main() {
 ```
 Tree Map Example Key: string Value: struct
 Tree Map Size: 7
-Tree Map Get key[88] Value: is
+Tree Map Get key[c] Value: is
 Tree Map Ordered Iteration
 Key: b Value: this
 Key: c Value: is
