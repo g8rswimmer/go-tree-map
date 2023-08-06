@@ -65,7 +65,7 @@ func TestCompleteTest_Int_String(t *testing.T) {
 				ordered = append(ordered, rb.Pair[int, string]{Key: k, Value: v})
 				return nil
 			}
-			err := m.Iterate(handler)
+			err := m.Range(handler)
 			assert.NoError(t, err)
 			assert.Equal(t, tt.wants.pairs, ordered)
 		})

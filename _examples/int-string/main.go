@@ -39,7 +39,7 @@ func main() {
 		fmt.Printf("Key: %d Value: %s\n", k, v)
 		return nil
 	}
-	if err := m.Iterate(handler); err != nil {
+	if err := m.Range(handler); err != nil {
 		panic(err)
 	}
 

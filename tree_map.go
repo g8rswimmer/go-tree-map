@@ -33,7 +33,7 @@ func (m *Map[_, _]) Len() int {
 	return m.size
 }
 
-func (m *Map[K, V]) Iterate(handler func(k K, v V) error) error {
+func (m *Map[K, V]) Range(handler func(k K, v V) error) error {
 	pairs := m.rbt.Inorder()
 
 	for _, p := range pairs {
