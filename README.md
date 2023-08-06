@@ -5,6 +5,8 @@ For example, go's map implementation is a hash map.  This is great with O(1) ope
 
 The tree map uses generics to allow for [Ordered](https://pkg.go.dev/golang.org/x/exp/constraints#Ordered) keys and `any` values.
 
+Tree map function signatures are based off of [sync.Map](https://pkg.go.dev/sync) package.
+
 ## Examples
 ### Key: Int Value: String
 ```go
