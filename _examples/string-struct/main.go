@@ -19,17 +19,17 @@ func main() {
 	m := tm.NewMap[string, example]()
 
 	// insert into the map
-	m.Put("v", example{"map"})
-	m.Put("d", example{"an"})
-	m.Put("l", example{"tree"})
-	m.Put("k", example{"of"})
-	m.Put("b", example{"this"})
-	m.Put("h", example{"example"})
-	m.Put("c", example{"is"})
+	m.Store("v", example{"map"})
+	m.Store("d", example{"an"})
+	m.Store("l", example{"tree"})
+	m.Store("k", example{"of"})
+	m.Store("b", example{"this"})
+	m.Store("h", example{"example"})
+	m.Store("c", example{"is"})
 
 	fmt.Printf("Tree Map Size: %d\n", m.Len())
 
-	v, ok := m.Get("c")
+	v, ok := m.Load("c")
 	if !ok {
 		panic("unable to find value")
 	}

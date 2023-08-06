@@ -20,12 +20,12 @@ func NewMap[K constraints.Ordered, V any]() *Map[K, V] {
 	}
 }
 
-func (m *Map[K, V]) Put(k K, v V) {
+func (m *Map[K, V]) Store(k K, v V) {
 	m.rbt.Insert(rb.Pair[K, V]{Key: k, Value: v})
 	m.size++
 }
 
-func (m *Map[K, V]) Get(k K) (V, bool) {
+func (m *Map[K, V]) Load(k K) (V, bool) {
 	return m.rbt.Search(k)
 }
 

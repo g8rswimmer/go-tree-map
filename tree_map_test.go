@@ -52,11 +52,11 @@ func TestCompleteTest_Int_String(t *testing.T) {
 			m := NewMap[int, string]()
 
 			for _, p := range tt.args.inputs {
-				m.Put(p.Key, p.Value)
+				m.Store(p.Key, p.Value)
 			}
 			assert.Equal(t, tt.wants.size, m.Len())
 
-			v, ok := m.Get(tt.args.key)
+			v, ok := m.Load(tt.args.key)
 			assert.Equal(t, true, ok)
 			assert.Equal(t, tt.wants.value, v)
 
