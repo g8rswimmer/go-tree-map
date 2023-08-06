@@ -10,6 +10,9 @@ func insert[K constraints.Ordered, V any](root, n *Node[K, V], p Pair[K, V], r *
 			Pair:  p,
 			black: false,
 		}
+	case p.Key == n.Pair.Key:
+		n.Pair.Value = p.Value
+		return n
 	case p.Key < n.Pair.Key:
 		n.left = insert(root, n.left, p, r)
 		n.left.parent = n
