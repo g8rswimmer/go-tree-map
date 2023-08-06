@@ -55,6 +55,21 @@ func main() {
 
 }
 ```
+#### Output
+```
+Tree Map Example Key: int Value: string
+Tree Map Size: 7
+Tree Map Get key[88] Value: put 5
+Tree Map Get key[88] Value: change put
+Tree Map Ordered Iteration
+Key: 2 Value: put 4
+Key: 4 Value: put 7
+Key: 7 Value: put 2
+Key: 11 Value: put 6
+Key: 26 Value: put 3
+Key: 78 Value: put 1
+Key: 88 Value: change put
+```
 
 ### Key: string Value: struct
 ```go
@@ -105,4 +120,18 @@ func main() {
 	}
 
 }
+```
+#### Output
+```
+Tree Map Example Key: string Value: struct
+Tree Map Size: 7
+Tree Map Get key[88] Value: is
+Tree Map Ordered Iteration
+Key: b Value: this
+Key: c Value: is
+Key: d Value: an
+Key: h Value: example
+Key: k Value: of
+Key: l Value: tree
+Key: v Value: map
 ```
