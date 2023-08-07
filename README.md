@@ -1,4 +1,4 @@
-[![golangci-lint](https://github.com/g8rswimmer/go-tree-map/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/g8rswimmer/go-tree-map/actions/workflows/golangci-lint.yml)
+[![golangci-lint](https://github.com/g8rswimmer/go-tree-map/actions/workflows/golangcli-lint.yml/badge.svg)](https://github.com/g8rswimmer/go-tree-map/actions/workflows/golangcli-lint.yml)
 [![go-test](https://github.com/g8rswimmer/go-tree-map/actions/workflows/go-test.yml/badge.svg)](https://github.com/g8rswimmer/go-tree-map/actions/workflows/go-test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 # Go Tree Map
