@@ -1,3 +1,6 @@
+[![golangci-lint](https://github.com/g8rswimmer/go-tree-map/actions/workflows/golangcli-lint.yml/badge.svg)](https://github.com/g8rswimmer/go-tree-map/actions/workflows/golangcli-lint.yml)
+[![go-test](https://github.com/g8rswimmer/go-tree-map/actions/workflows/go-test.yml/badge.svg)](https://github.com/g8rswimmer/go-tree-map/actions/workflows/go-test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 # Go Tree Map
 This Map is implemented using a [red-black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) which allows for the keys to be ordered.  When interating through the the maps pairs, key and value, those pairs will be return in descending order.  This can be useful when iteration through the map needs to be deterministic.  
 
